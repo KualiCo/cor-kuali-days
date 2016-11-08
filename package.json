@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/KualiCo/cor-kuali-days/issues"
   },
-  "homepage": "https://github.com/KualiCo/cor-kuali-days#readme"
+  "homepage": "https://github.com/KualiCo/cor-kuali-days#readme",
+  "dependencies": {
+    "next": "^1.1.1"
+  }
 }
