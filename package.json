@@ -1,0 +1,30 @@
+{
+  "name": "core-apis",
+  "version": "0.1.0",
+  "private": true,
+  "main": "server.js",
+  "devDependencies": {
+    "concurrently": "^3.1.0",
+    "react-scripts": "0.7.0"
+  },
+  "dependencies": {
+    "@kuali/simple-tree": "^1.0.3",
+    "express": "^4.14.0",
+    "nodemon": "^1.11.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-router": "^3.0.0",
+    "request": "^2.78.0",
+    "request-promise": "^4.1.1"
+  },
+  "proxy": "http://localhost:8000",
+  "scripts": {
+    "watch": "concurrently \"npm run watch:server\" \"npm run watch:client\"",
+    "watch:server": "nodemon server",
+    "watch:client": "react-scripts start",
+    "start": "node server",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
