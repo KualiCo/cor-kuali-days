@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import Paper from 'material-ui/Paper'
+import RaisedButton from 'material-ui/RaisedButton'
+import TextField from 'material-ui/TextField'
 import axios from 'axios'
 import styles from './index.css'
 
@@ -32,16 +35,20 @@ class Login extends Component {
 
   render() {
     return (
-      <div className={styles.paper}>
-        <input
+      <Paper className={styles.paper}>
+        <TextField
+          floatingLabelText="Username"
+          hintText="Username"
           onChange={this.updateUsername}
         />
-        <input
+        <TextField
+          hintText="Password"
+          floatingLabelText="Password"
           type="password"
           onChange={this.updatePassword}
         />
-        <button onClick={this.submit} />
-      </div>
+        <RaisedButton label="Primary" primary={true} onClick={this.submit} />
+      </Paper>
     )
   }
 }

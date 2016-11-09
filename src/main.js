@@ -14,16 +14,18 @@ class Main extends Component {
       this.setState({
         user: res.data
       })
+    }).catch(() => {
+      window.location = '/login'
     })
   }
 
   render() {
     return (
-      <div className={styles.paper}>
+      <Paper className={styles.paper}>
         {(this.state.user &&
         <span>Hey, {this.state.user.displayName}</span>
         )}
-      </div>
+      </Paper>
     )
   }
 }
