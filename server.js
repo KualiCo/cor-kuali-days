@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 8000
 const app = express()
 app.use(session({
   secret: 'definitely not keyboard cat',
-  cookie: { maxAge: 60000 },
+  cookie: { maxAge: 3600000 },
   resave: true,
   saveUninitialized: true,
   secure: false,
