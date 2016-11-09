@@ -21,7 +21,7 @@ class Main extends Component {
 
   render() {
     return (
-      <Paper className={styles.paper}>
+      <Paper className="paper">
         {(this.state.user &&
         <span>Hey, {this.state.user.displayName}</span>
         )}

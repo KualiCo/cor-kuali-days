@@ -35,19 +35,19 @@ class Login extends Component {
 
   render() {
     return (
-      <Paper className={styles.paper}>
+      <Paper className="paper">
         <TextField
           floatingLabelText="Username"
           hintText="Username"
           onChange={this.updateUsername}
-        />
+        /><br/>
         <TextField
           hintText="Password"
           floatingLabelText="Password"
           type="password"
           onChange={this.updatePassword}
-        />
-        <RaisedButton label="Primary" primary={true} onClick={this.submit} />
+        /><br/>
+        <RaisedButton label="Log in" primary={true} onClick={this.submit} />
       </Paper>
     )
   }
