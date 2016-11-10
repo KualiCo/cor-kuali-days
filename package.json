@@ -25,7 +25,7 @@
   "proxy": "http://localhost:8000",
   "scripts": {
     "watch": "concurrently \"npm run watch:server\" \"npm run watch:client\"",
-    "watch:server": "nodemon server",
+    "watch:server": "nodemon server --ignore src/",
     "watch:client": "react-scripts start",
     "start": "node server",
     "build": "react-scripts build",

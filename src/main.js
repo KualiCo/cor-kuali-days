@@ -5,6 +5,9 @@ import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColu
 import axios from 'axios'
 
 class Main extends Component {
+  static contextTypes = {
+    router: React.PropTypes.any
+  }
   constructor() {
     super()
     this.state = {
@@ -24,7 +27,7 @@ class Main extends Component {
     })
     .then(this.setUserList)
     .catch(() => {
-      window.location = '/login'
+      this.context.router.push('/login')
     })
   }
 
@@ -85,14 +88,18 @@ class Main extends Component {
               <TableHeader enableSelectAll={true}>
                 <TableRow>
                   <TableHeaderColumn>Username</TableHeaderColumn>
+                  <TableHeaderColumn>Email</TableHeaderColumn>
                   <TableHeaderColumn>Name</TableHeaderColumn>
+                  <TableHeaderColumn>Created At</TableHeaderColumn>
                 </TableRow>
               </TableHeader>
               <TableBody deselectOnClickaway={false}>
                 {this.state.userList.map(user => (
                   <TableRow key={user.id} selected={this.state.selectedUsers[user.id]}>
-                    <TableRowColumn>{user.username || user.email}</TableRowColumn>
+                    <TableRowColumn>{user.username}</TableRowColumn>
+                    <TableRowColumn>{user.email}</TableRowColumn>
                     <TableRowColumn>{user.displayName}</TableRowColumn>
+                    <TableRowColumn>{new Date(user.createdAt).toString()}</TableRowColumn>
                   </TableRow>))
                 }
               </TableBody>

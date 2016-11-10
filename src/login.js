@@ -5,6 +5,9 @@ import TextField from 'material-ui/TextField'
 import axios from 'axios'
 
 class Login extends Component {
+  static contextTypes = {
+    router: React.PropTypes.any
+  }
   constructor() {
     super()
     this.state = {}
@@ -28,7 +31,7 @@ class Login extends Component {
         password: this.state.password
       }
     }).then(res => {
-      window.location = '/'
+      this.context.router.push('/')
     }).catch(err => {
       console.dir(err)
       this.setState({
