@@ -45,7 +45,7 @@ class Login extends Component {
     }).catch(err => {
       console.dir(err)
       this.setState({
-        error: err.message || 'Error'
+        error: err.response.statusText || 'Error'
       })
     })
   }
