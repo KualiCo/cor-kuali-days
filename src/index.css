@@ -14,3 +14,13 @@ body {
 .approve {
   margin-top: 1em;
 }
+
+.current-user {
+  position: absolute;
+  top: -1em;
+  left: 0;
+}
+
+.header {
+  position: relative;
+}

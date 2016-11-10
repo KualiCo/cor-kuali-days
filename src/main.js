@@ -81,7 +81,10 @@ class Main extends Component {
       <Paper className="paper">
         {(this.state.user &&
           <div>
-            <h3>Unapproved Users</h3>
+            <div className="header">
+              <span className="current-user">Logged in as: {this.state.user.displayName}</span>
+              <h3>Unapproved Users</h3>
+            </div>
             <Table multiSelectable={true}
               onRowSelection={this.rowSelection}
             >
