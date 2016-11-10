@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import Paper from 'material-ui/Paper'
-import RaisedButton from 'material-ui/RaisedButton'
-import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table'
 import axios from 'axios'
 
 class Main extends Component {
@@ -33,6 +31,7 @@ class Main extends Component {
             <div className="header">
               <span className="current-user">Logged in as: {this.state.user.displayName}</span>
             </div>
+          </div>
         )}
       </Paper>
     )
