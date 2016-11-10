@@ -3,7 +3,6 @@ import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField'
 import axios from 'axios'
-import styles from './index.css'
 
 class Login extends Component {
   constructor() {
@@ -15,11 +14,11 @@ class Login extends Component {
   }
 
   updateUsername(e) {
-    this.setState({ username: e.target.value })
+    this.setState({ username: e.target.value, error: undefined })
   }
 
   updatePassword(e) {
-    this.setState({ password: e.target.value })
+    this.setState({ password: e.target.value, error: undefined })
   }
 
   submit() {
@@ -28,8 +27,13 @@ class Login extends Component {
         username: this.state.username,
         password: this.state.password
       }
-    }).then(() => {
+    }).then(res => {
       window.location = '/'
+    }).catch(err => {
+      console.dir(err)
+      this.setState({
+        error: err.message || 'Error'
+      })
     })
   }
 
@@ -40,12 +44,14 @@ class Login extends Component {
           floatingLabelText="Username"
           hintText="Username"
           onChange={this.updateUsername}
+          errorText={this.state.error}
         /><br/>
         <TextField
           hintText="Password"
           floatingLabelText="Password"
           type="password"
           onChange={this.updatePassword}
+          errorText={this.state.error}
         /><br/>
         <RaisedButton label="Log in" primary={true} onClick={this.submit} />
       </Paper>

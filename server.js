@@ -3,11 +3,13 @@
 const path = require('path')
 const express = require('express')
 const session = require('express-session')
+const bodyParser = require('body-parser')
 const routes = require('./routes')
 
 const PORT = process.env.PORT || 8000
 
 const app = express()
+app.use(bodyParser.json())
 app.use(session({
   secret: 'definitely not keyboard cat',
   cookie: { maxAge: 3600000 },
