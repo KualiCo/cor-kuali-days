@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Router, Route, browserHistory } from 'react-router'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import Login from './login'
-import Main from './main'
+import Login from './components/login'
+import Main from './components/main'
 
 class App extends Component {
   render() {
