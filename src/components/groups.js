@@ -1,9 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import SimpleTree from '@kuali/simple-tree'
 import axios from 'axios'
 import GroupView from './group-view'
 
 class Groups extends Component {
+  static contextTypes = {
+    router: PropTypes.any
+  }
+
   constructor(props) {
     super(props)
     this.state = {
@@ -17,7 +21,11 @@ class Groups extends Component {
   }
 
   componentDidMount() {
-    this.getData()
+    axios.get('/api/current-user')
+      .then(() => this.getData())
+      .catch(() => {
+        this.context.router.push('/login')
+      })
   }
 
   getData() {
