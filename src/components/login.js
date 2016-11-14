@@ -8,12 +8,16 @@ class Login extends Component {
   static contextTypes = {
     router: React.PropTypes.any
   }
-  constructor() {
-    super()
-    this.state = {}
+  constructor(props) {
+    super(props)
+    this.state = {
+      username: '',
+      password: ''
+    }
     this.updateUsername = this.updateUsername.bind(this)
     this.updatePassword = this.updatePassword.bind(this)
     this.submit = this.submit.bind(this)
+    this.keyDown = this.keyDown.bind(this)
   }
 
   updateUsername(e) {
@@ -22,6 +26,12 @@ class Login extends Component {
 
   updatePassword(e) {
     this.setState({ password: e.target.value, error: undefined })
+  }
+
+  keyDown(e) {
+    if (e.key === 'Enter') {
+      this.submit()
+    }
   }
 
   submit() {
@@ -41,20 +51,24 @@ class Login extends Component {
   }
 
   render() {
+    const {error, username, password} = this.state
     return (
       <Paper className="paper">
         <TextField
           floatingLabelText="Username"
           hintText="Username"
           onChange={this.updateUsername}
-          errorText={this.state.error}
+          errorText={error}
+          value={username}
         /><br/>
         <TextField
           hintText="Password"
           floatingLabelText="Password"
           type="password"
           onChange={this.updatePassword}
-          errorText={this.state.error}
+          errorText={error}
+          value={password}
+          onKeyDown={this.keyDown}
         /><br/>
         <RaisedButton label="Log in" primary={true} onClick={this.submit} />
       </Paper>

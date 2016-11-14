@@ -8,8 +8,8 @@ class Main extends Component {
   static contextTypes = {
     router: React.PropTypes.any
   }
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       userList: [],
       selectedUsers: {}
