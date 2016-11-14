@@ -9,7 +9,10 @@ class Login extends Component {
   }
   constructor() {
     super()
-    this.state = {}
+    this.state = {
+      username: '',
+      password: ''
+    }
     this.updateUsername = this.updateUsername.bind(this)
     this.updatePassword = this.updatePassword.bind(this)
     this.submit = this.submit.bind(this)
@@ -27,20 +30,23 @@ class Login extends Component {
   }
 
   render() {
+    const {error, username, password} = this.state
     return (
       <Paper className="paper">
         <TextField
           floatingLabelText="Username"
           hintText="Username"
           onChange={this.updateUsername}
-          errorText={this.state.error}
+          errorText={error}
+          value={username}
         /><br/>
         <TextField
           hintText="Password"
           floatingLabelText="Password"
           type="password"
           onChange={this.updatePassword}
-          errorText={this.state.error}
+          errorText={error}
+          value={password}
         /><br/>
         <RaisedButton label="Log in" primary={true}  onClick={this.submit} />
       </Paper>
