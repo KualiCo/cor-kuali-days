@@ -18,3 +18,15 @@ cd cor-kuali-days
 npm install # Or yarn if you prefer
 npm run watch # Or in two separate tabs: npm run watch:server and npm run watch:client
 ```
+
+# Build
+
+```sh
+npm run build
+```
+
+# Run
+
+```sh
+npm start
+```
