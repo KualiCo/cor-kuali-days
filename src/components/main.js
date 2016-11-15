@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router'
 import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton'
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table'
+import Menu from './menu'
 
 class Main extends Component {
   static contextTypes = {
@@ -54,6 +56,7 @@ class Main extends Component {
   render() {
     return (
       <Paper className="paper">
+        <Menu />
         {(this.state.user &&
           <div>
             <div className="header">
