@@ -25,12 +25,19 @@ class Groups extends Component {
 
   componentDidMount() {
     axios.get('/api/current-user')
+      .then(() => this.getData())
       .catch(() => {
         this.context.router.push('/login')
       })
   }
 
   getData() {
+    Promise.all([
+      axios.get('/api/groups').then(res => res.data),
+      axios.get('/api/categories').then(res => res.data),
+    ]).then(([ groups, categories ]) => {
+      this.setState({ groups, categories })
+    })
 
   }
 

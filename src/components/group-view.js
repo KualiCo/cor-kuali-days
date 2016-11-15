@@ -8,11 +8,14 @@ class GroupView extends Component {
   }
   render() {
     const { group, category } = this.props
+    console.log(group, category)
     if (!group) return null
     return (
       <Paper>
         <List>
-
+          <ListItem
+            primaryText={group.name}
+          />
         </List>
       </Paper>
     )

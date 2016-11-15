@@ -48,9 +48,33 @@ function approveUser(user, token) {
   })
 }
 
+function getGroups(token) {
+  return request({
+    method: 'GET',
+    uri: `${KUALI_SERVER}/api/v1/groups?limit=100`,
+    headers: {
+      'Authorization': `Bearer ${token}`
+    },
+    json: true
+  })
+}
+
+function getCategories(token) {
+  return request({
+    method: 'GET',
+    uri: `${KUALI_SERVER}/api/v1/categories?limit=100`,
+    headers: {
+      'Authorization': `Bearer ${token}`
+    },
+    json: true
+  })
+}
+
 module.exports = {
   authenticate,
   getCurrentUser,
   getUnapprovedUsers,
-  approveUser
+  approveUser,
+  getGroups,
+  getCategories
 }

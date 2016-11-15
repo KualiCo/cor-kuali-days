@@ -40,4 +40,16 @@ routes.post('/api/approve-users', (req, res, next) => {
   })
 })
 
+routes.get('/api/groups', (req, res, next) => {
+  kuali.getGroups(req.session.token)
+    .then(data => res.json(data))
+    .catch(next)
+})
+
+routes.get('/api/categories', (req, res, next) => {
+  kuali.getCategories(req.session.token)
+    .then(data => res.json(data))
+    .catch(next)
+})
+
 module.exports = routes
