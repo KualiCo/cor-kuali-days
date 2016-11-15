@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField'
+import axios from 'axios'
 
 class Login extends Component {
   static contextTypes = {
@@ -27,6 +28,18 @@ class Login extends Component {
   }
 
   submit() {
+    axios.post('/api/login', {}, {
+      auth: {
+        username: this.state.username,
+        password: this.state.password
+      }
+    }).then(() => {
+      this.context.router.push('/')
+    }).catch(err => {
+      this.setState({
+        error: err.response.statusText
+      })
+    })
   }
 
   keyDown(e) {
