@@ -18,9 +18,19 @@ function approveUser(user, token) {
 
 }
 
+function getGroups(token) {
+
+}
+
+function getCategories(token) {
+
+}
+
 module.exports = {
   authenticate,
   getCurrentUser,
   getUnapprovedUsers,
-  approveUser
+  approveUser,
+  getGroups,
+  getCategories
 }

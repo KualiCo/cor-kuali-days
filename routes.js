@@ -17,4 +17,10 @@ routes.get('/api/unapproved-users', (req, res, next) => {
 routes.post('/api/approve-users', (req, res, next) => {
   res.end()
 })
+routes.get('/api/groups', (req, res, next) => {
+  res.end()
+})
+routes.get('/api/categories', (req, res, next) => {
+  res.end()
+})
 module.exports = routes
