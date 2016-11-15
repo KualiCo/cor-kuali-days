@@ -29,6 +29,12 @@ class Login extends Component {
   submit() {
   }
 
+  keyDown(e) {
+    if (e.key === 'Enter') {
+      this.submit()
+    }
+  }
+
   render() {
     const {error, username, password} = this.state
     return (
@@ -47,6 +53,7 @@ class Login extends Component {
           onChange={this.updatePassword}
           errorText={error}
           value={password}
+          onKeyDown={this.keyDown.bind(this)}
         /><br/>
         <RaisedButton label="Log in" primary={true}  onClick={this.submit} />
       </Paper>
